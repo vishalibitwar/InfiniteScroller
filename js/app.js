@@ -6,8 +6,9 @@ newUserProfile();
 newUserProfile();
 newUserProfile();
 
-
-window.addEventListener('scroll', () => {
+document.body.addEventListener('touchmove', onScroll);
+window.addEventListener('scroll', onScroll);
+ function onScroll(){
   const {
     scrollTop,
     scrollHeight,
@@ -15,8 +16,7 @@ window.addEventListener('scroll', () => {
   } = document.documentElement;
   if (scrollTop + clientHeight >= scrollHeight - 5) {
     showLoading();
-  }
-});
+}}
 
 function showLoading() {
   loading.classList.add('show');
