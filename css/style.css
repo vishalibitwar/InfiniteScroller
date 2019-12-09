@@ -1,0 +1,144 @@
+
+* {
+  box-sizing: border-box;
+}
+
+header {
+  font-family: 'Crete Round', serif;
+  font-size: 1.5rem;
+  text-align: center;
+  background: black;
+  color: white;
+  width: 100%;
+  position: relative;
+  top: 0;
+  left: 0;
+  padding: 0;
+  border-radius: 5px;
+  margin: 0;
+}
+
+body {
+  background-color: #fafafa;
+  color: black;
+  font-family: 'Muli', sans-serif;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: flex-start;
+  min-height: 100vh;
+  padding-bottom: 100px;
+}
+
+.user {
+  background-color: rgb(250, 250, 250, 2);
+  box-shadow: 0 2px 3px gray;
+  border-radius: 10px;
+  display: flex;
+  padding: 20px;
+  margin: 40px 0;
+  width: 80vw;
+  max-width: 800px;
+  align-items: center;
+}
+
+.user-name {
+  margin: 0;
+  margin-bottom: 0.2rem;
+}
+
+.user-email {
+  margin: 0;
+  word-break: break-all;
+  overflow: hidden;
+  text-overflow: ellipsis;
+}
+
+.user-info {
+  margin-left: 30px;
+  padding: 0;
+}
+
+.loading {
+  opacity: 0;
+  display: flex;
+  position: fixed;
+  bottom: 50px;
+  transition: opacity .3s ease-in;
+}
+
+.loading.show {
+  opacity: 1;
+}
+
+.ball {
+  background-color: #333;
+  border-radius: 50%;
+  margin: 5px;
+  height: 10px;
+  width: 10px;
+  animation: jump .5s ease-in infinite;
+}
+
+img {
+  width: 125px;
+  height: 125px;
+  border-radius: 50%;
+  align-self: center;
+}
+
+footer a {
+  position: fixed;
+  bottom: 0;
+  right: 0;
+  text-decoration: none;
+  background: black;
+  color: white;
+  font-size: 1rem;
+  padding: 0.7rem;
+  margin: 1rem;
+  border-radius: 5px;
+}
+
+.ball:nth-of-type(2) {
+  animation-delay: 0.1s;
+}
+
+.ball:nth-of-type(3) {
+  animation-delay: 0.2s;
+}
+
+@keyframes jump {
+
+  0%,
+  100% {
+    transform: translateY(0);
+  }
+
+  50% {
+    transform: translateY(-10px);
+  }
+}
+
+@media screen and (max-width: 600px) {
+  .user {
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    text-align: justify;
+    padding: 20px 10px;
+  }
+
+  .user-name {
+    text-align: center;
+  }
+
+  .user-info {
+    margin-left: 0;
+  }
+
+  footer a {
+    visibility: hidden;
+  }
+
+}
