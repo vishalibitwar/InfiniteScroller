@@ -1,6 +1,8 @@
 
 * {
   box-sizing: border-box;
+  margin:0;
+  padding: 0;
 }
 
 header {
@@ -10,12 +12,11 @@ header {
   background: black;
   color: white;
   width: 100%;
-  position: relative;
-  top: 0;
-  left: 0;
-  padding: 0;
-  border-radius: 5px;
-  margin: 0;
+  padding: 1.3rem 0;
+}
+
+header h1{
+   margin: 0rem 0.4rem;
 }
 
 body {
@@ -140,5 +141,7 @@ footer a {
   footer a {
     visibility: hidden;
   }
+ 
+ 
 
 }

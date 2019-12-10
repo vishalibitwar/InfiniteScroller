@@ -6,8 +6,20 @@ newUserProfile();
 newUserProfile();
 newUserProfile();
 
+
+
+
+document.body.addEventListener( "touchstart", function(e){ onStart(e); }, false );
+function onStart ( touchEvent ) {
+  if( navigator.userAgent.match(/Android/i) ) {
+    touchEvent.preventDefault();
+  }
+}
+
 document.body.addEventListener('touchmove', onScroll);
 window.addEventListener('scroll', onScroll);
+
+
  function onScroll(){
   const {
     scrollTop,
