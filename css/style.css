@@ -1,7 +1,6 @@
-
 * {
   box-sizing: border-box;
-  margin:0;
+  margin: 0;
   padding: 0;
 }
 
@@ -15,8 +14,8 @@ header {
   padding: 1.3rem 0;
 }
 
-header h1{
-   margin: 0rem 0.4rem;
+header h1 {
+  margin: 0rem 0.4rem;
 }
 
 body {
@@ -141,7 +140,4 @@ footer a {
   footer a {
     visibility: hidden;
   }
- 
- 
-
 }

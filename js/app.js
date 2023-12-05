@@ -1,24 +1,19 @@
 const container = document.getElementById("container");
 const loading = document.querySelector(".loading");
-let isLoading;
-newUserProfile();
-newUserProfile();
-
+let isFetching;
 const lastUserSelector = document.querySelector(".user:last-child");
 
-function showLoading() {
-  if (isLoading) return false;
+function throttle() {
+  if (isFetching) return;
   setTimeout(() => {
-    newUserProfile();
-    isLoading = false;
-    loading.classList.remove("show");
+    getNewUsers();
+    isFetching = false;
   }, 200);
 
-  loading.classList.add("show");
-  isLoading = true;
+  isFetching = true;
 }
 
-function newUserProfile() {
+function getNewUsers() {
   fetch(
     `https://randomuser.me/api/?results=3&inc=name,location,email,phone,dob,picture&nat=us,dk,au,nz,fr,ca,ch,br,de,es,fi,gb,ie,no,nl`
   )
@@ -49,11 +44,17 @@ function showprofile(users) {
 const observer = new IntersectionObserver((entries) => {
   const lastUser = entries[0];
   if (!lastUser.isIntersecting) return;
-  showLoading();
+  throttle();
   observer.unobserve(lastUser.target);
   observer.observe(document.querySelector(".user:last-child"));
 }, {});
 
-setTimeout(() => {
+(async () => {
+  const response = await fetch(
+    `https://randomuser.me/api/?results=6&inc=name,location,email,phone,dob,picture&nat=us,dk,au,nz,fr,ca,ch,br,de,es,fi,gb,ie,no,nl`
+  );
+
+  const data = await response.json();
+  showprofile(data.results);
   observer.observe(document.querySelector(".user:last-child"));
-}, 1000);
+})();
