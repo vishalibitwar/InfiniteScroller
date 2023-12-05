@@ -8,7 +8,7 @@ function throttle() {
   setTimeout(() => {
     getNewUsers();
     isFetching = false;
-  }, 200);
+  }, 100);
 
   isFetching = true;
 }
